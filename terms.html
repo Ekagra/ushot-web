@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ushot FAQ & Support</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #ff3366; /* Adjust to match your app's branding */
+            --bg-color: #f9f9f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .faq-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        details {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        details:last-child {
+            border-bottom: none;
+        }
+
+        summary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding-top: 15px;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Ushot Support</h1>
+            <p class="subtitle">Everything you need to know to start taking dares.</p>
+        </header>
+
+        <div class="faq-section">
+            <details>
+                <summary>What is Ushot?</summary>
+                <div class="faq-content">
+                    Ushot is a social platform where you can dare your friends, accept challenges, and share photo proof.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do I complete a dare?</summary>
+                <div class="faq-content">
+                    When you accept a dare, you'll need to upload a photo as proof of completion. Once uploaded, the person who dared you (the daremaker) can view your proof and approve it with a like!
+                </div>
+            </details>
+
+            <details>
+                <summary>What are Tags (#)?</summary>
+                <div class="faq-content">
+                    Tags group similar dares together. You can follow specific tags (like #peekaboo or #welcome) to see what others are doing and find new dares to accept.
+                </div>
+            </details>
+
+            <details>
+                <summary>How do invites work?</summary>
+                <div class="faq-content">
+                    You can generate a system invite link to bring your friends onto Ushot. When they sign up using your code, they'll immediately receive their first dare from you.
+                </div>
+            </details>
+
+            <details>
+                <summary>I saw something inappropriate. What do I do?</summary>
+                <div class="faq-content">
+                    Safety is our top priority. You can report any dare, photo, or user directly in the app. Just tap the <strong>Report</strong> button on the post. Our moderation system will review the content immediately.
+                </div>
+            </details>
+
+            <details>
+                <summary>Why is a photo blurred out?</summary>
+                <div class="faq-content">
+                    Some tags, like the #peekaboo tag, use a blur effect by default. Only the specific users who have completed the prerequisite dares can see the clear image.
+                </div>
+            </details>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Ushot. All rights reserved.</p>
+            <p><a href="/terms.html">Terms & Conditions</a> | <a href="/privacy.html">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
