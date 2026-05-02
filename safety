@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ushot — Safety</title>
+<style>
+:root {
+    --primary-color: #1a1a1a;
+    --accent-color: #ff3366;
+    --bg-color: #f9f9f9;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --border-color: #eaeaea;
+    
+    /* Semantic Colors for diagrams/badges */
+    --success: #10b981;
+    --warning: #f97316;
+    --info: #3b82f6;
+    --danger: #ff3366;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+/* ── HEADER & HERO ──────────────────────────────────────────────── */
+.site-header {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.logo-mark {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.breadcrumb {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.hero {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+}
+.hero-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+.hero-title {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+.hero-title em {
+    font-style: normal;
+    color: var(--accent-color);
+}
+.hero-sub {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* ── SECTIONS & CARDS ────────────────────────────────────── */
+.section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin: 25px 0 15px;
+}
+
+p, li {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+ul { padding-left: 20px; margin-bottom: 20px; }
+li { margin-bottom: 8px; }
+
+code {
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9rem;
+    background: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--danger);
+}
+
+/* ── TOC ─────────────────────────────────────────────────── */
+.toc {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    display: block;
+}
+.toc-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { margin-bottom: 8px; font-size: 1.05rem; }
+.toc a { color: var(--accent-color); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+
+/* ── CALLOUT BOXES ───────────────────────────────────────── */
+.callout {
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+    border-left: 4px solid;
+    background-color: #fff;
+}
+.callout::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+.callout.info { border-left-color: var(--info); background-color: rgba(59, 130, 246, 0.05); }
+.callout.info::before { color: var(--info); }
+.callout.warn { border-left-color: var(--warning); background-color: rgba(249, 115, 22, 0.05); }
+.callout.warn::before { color: var(--warning); }
+.callout.danger { border-left-color: var(--danger); background-color: rgba(255, 51, 102, 0.05); }
+.callout.danger::before { color: var(--danger); }
+.callout.safe { border-left-color: var(--success); background-color: rgba(16, 185, 129, 0.05); }
+.callout.safe::before { color: var(--success); }
+.callout p { margin: 0; color: #444; }
+
+/* ── TABLES ─────────────────────────────────────────── */
+.layer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+.layer-table th {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-color);
+}
+.layer-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: #555;
+    vertical-align: middle;
+}
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.badge.hard { background: var(--danger); color: #fff; }
+.badge.soft { background: var(--warning); color: #fff; }
+.badge.open { background: var(--success); color: #fff; }
+.badge.closed { background: var(--info); color: #fff; }
+
+/* ── SVGs / FLOWCHARTS ──────────────────────────────────── */
+.flow-wrap {
+    margin: 30px 0;
+    overflow-x: auto;
+    background: var(--bg-color);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+svg.flow {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: block;
+    max-width: 100%;
+}
+
+/* ── CHIPS ─────────────────────────────────────────────── */
+.chips {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0;
+}
+.chip {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 20px;
+    background: #f1f1f1;
+}
+.chip.r { color: var(--danger); background: rgba(255, 51, 102, 0.1); }
+.chip.g { color: var(--success); background: rgba(16, 185, 129, 0.1); }
+.chip.b { color: var(--info); background: rgba(59, 130, 246, 0.1); }
+.chip.o { color: var(--warning); background: rgba(249, 115, 22, 0.1); }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: #888;
+}
+footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
+footer a:hover { text-decoration: underline; }
+footer span { display: block; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="#" class="logo-mark">Ushot</a>
+    <span class="breadcrumb">/ Safety &amp; Content Policy</span>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">Engineering Documentation · v1.0</p>
+    <h1 class="hero-title">How Ushot Keeps<br><em>Dares Safe</em></h1>
+    <p class="hero-sub">
+      A transparent look at the multi-layer moderation pipeline that protects users —
+      from the moment a dare is typed to the second a post is uploaded.
+    </p>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#layers">Safety Layers</a></li>
+      <li><a href="#dare-pipeline">Dare Moderation Pipeline</a></li>
+      <li><a href="#media-pipeline">Media Upload Pipeline</a></li>
+      <li><a href="#auth">Authentication &amp; Authorization</a></li>
+      <li><a href="#storage">Storage Security</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. OVERVIEW -->
+  <div class="section" id="overview">
+    <h2>Overview</h2>
+    <p>
+      Ushot is a social dare-and-prove app. Every dare and every completed post goes through
+      multiple independent safety checks before it reaches another user's screen.
+      No single service failure can let harmful content through. The system defaults
+      to <strong>blocking</strong> when uncertain.
+    </p>
+    <div class="chips">
+      <span class="chip r">Fail-Closed on Safety</span>
+      <span class="chip b">Auth on Every Request</span>
+      <span class="chip o">Signed URLs for All Media</span>
+    </div>
+    <div class="callout info" data-label="Design principle">
+      <p>
+        Safety and feasibility are kept as <strong>two separate passes</strong>.
+        OpenAI Moderation catches harmful/illegal content. And our LLM providers catche dares
+        that are impossible, dangerous, or harassing.
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. SAFETY LAYERS -->
+  <div class="section" id="layers">
+    <h2>Safety Layers at a Glance</h2>
+
+    <table class="layer-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Layer</th>
+          <th>What it checks</th>
+          <th>Fail strategy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Auth</td>
+          <td>Valid JWT on every request</td>
+          <td><span class="badge hard">Hard Block</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Input Validation</td>
+          <td>Length (10–200 chars), non-blank</td>
+          <td><span class="badge hard">Hard Block</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Translation &amp; Language Check</td>
+          <td>Auto-translates and rejects unintelligible text</td>
+          <td><span class="badge closed">Closed</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>OpenAI Moderation</td>
+          <td>Harm / hate / violence / sexual content</td>
+          <td><span class="badge hard">Fail Closed</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>LLM Feasibility</td>
+          <td>Dangerous, impossible, or harassing dare logic</td>
+          <td><span class="badge soft">Fail Closed on timeout</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Storage Enforcement</td>
+          <td>Users can only access their own storage bucket</td>
+          <td><span class="badge hard">Hard Block</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Upload Quota Check</td>
+          <td>Per-user and global storage caps</td>
+          <td><span class="badge hard">Hard Block</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Signed URL Access</td>
+          <td>Every media read/write requires a short-lived signed URL</td>
+          <td><span class="badge hard">Hard Block</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. DARE PIPELINE -->
+  <div class="section" id="dare-pipeline">
+    <h2>Dare Moderation Pipeline</h2>
+    <p>Every dare text is moderated before it is stored or sent to another user.</p>
+
+    <div class="flow-wrap">
+      <svg class="flow" viewBox="0 0 820 640" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#333333"/>
+          </marker>
+          <marker id="arr-red" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#ff3366"/>
+          </marker>
+          <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
+          </marker>
+        </defs>
+
+        <!-- User Input box -->
+        <g class="node">
+          <rect x="290" y="10" width="240" height="48" rx="8" fill="#ffffff" stroke="#eaeaea" stroke-width="2"/>
+          <text x="410" y="38" text-anchor="middle" font-size="16" fill="#1a1a1a">📱 User submits dare text</text>
+        </g>
+        <line x1="410" y1="58" x2="410" y2="90" stroke="#333333" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- Auth Check -->
+        <g class="node">
+          <polygon points="410,90 540,120 410,150 280,120" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+          <text x="410" y="117" text-anchor="middle" font-size="14" fill="#3b82f6">JWT Auth</text>
+          <text x="410" y="135" text-anchor="middle" font-size="14" fill="#3b82f6">valid?</text>
+        </g>
+        <line x1="280" y1="120" x2="160" y2="120" stroke="#ff3366" stroke-width="2" marker-end="url(#arr-red)"/>
+        <rect x="40" y="100" width="118" height="40" rx="6" fill="#ffe6ec" stroke="#ff3366" stroke-width="2"/>
+        <text x="99" y="120" text-anchor="middle" font-size="14" fill="#ff3366">401</text>
+        <text x="99" y="136" text-anchor="middle" font-size="12" fill="#ff3366">Unauthorized</text>
+        <text x="220" y="113" font-size="13" fill="#ff3366">no</text>
+
+        <line x1="410" y1="150" x2="410" y2="188" stroke="#10b981" stroke-width="2" marker-end="url(#arr-green)"/>
+        <text x="420" y="172" font-size="13" fill="#10b981">yes</text>
+
+        <!-- Input Validation -->
+        <g class="node">
+          <rect x="290" y="188" width="240" height="46" rx="8" fill="#ffffff" stroke="#eaeaea" stroke-width="2"/>
+          <text x="410" y="208" text-anchor="middle" font-size="15" fill="#1a1a1a">Validate Input</text>
+          <text x="410" y="226" text-anchor="middle" font-size="12" fill="#666666">length 10–200 chars</text>
+        </g>
+        <line x1="410" y1="234" x2="410" y2="268" stroke="#333333" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- Translation -->
+        <g class="node">
+          <rect x="270" y="268" width="280" height="46" rx="8" fill="#ffffff" stroke="#eaeaea" stroke-width="2"/>
+          <text x="410" y="290" text-anchor="middle" font-size="15" fill="#1a1a1a">Translation</text>
+          <text x="410" y="308" text-anchor="middle" font-size="12" fill="#666666">auto-translate → English</text>
+        </g>
+        <line x1="270" y1="290" x2="158" y2="290" stroke="#ff3366" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-red)"/>
+        <text x="170" y="282" font-size="12" fill="#ff3366">unreliable</text>
+        <rect x="40" y="270" width="116" height="38" rx="6" fill="#ffe6ec" stroke="#ff3366" stroke-width="2"/>
+        <text x="98" y="294" text-anchor="middle" font-size="13" fill="#ff3366">400 Blocked</text>
+
+        <line x1="410" y1="314" x2="410" y2="350" stroke="#333333" stroke-width="2" marker-end="url(#arr)"/>
+
+        <!-- OpenAI -->
+        <g class="node">
+          <rect x="255" y="350" width="310" height="56" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+          <text x="410" y="372" text-anchor="middle" font-size="16" fill="#3b82f6">🤖 OpenAI Moderation</text>
+          <text x="410" y="393" text-anchor="middle" font-size="12" fill="#3b82f6">harm · hate · violence</text>
+        </g>
+        <line x1="565" y1="378" x2="660" y2="378" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+        <rect x="662" y="360" width="140" height="38" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="2"/>
+        <text x="732" y="380" text-anchor="middle" font-size="12" fill="#f97316">timeout → block</text>
+
+       <!-- Horizontal Left Branch: OpenAI Unsafe -->
+        <line x1="255" y1="378" x2="160" y2="378" stroke="#ff3366" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-red)"/>
+        <text x="208" y="370" font-size="12" fill="#ff3366" text-anchor="middle">unsafe</text>
+        <rect x="40" y="359" width="118" height="38" rx="6" fill="#ffe6ec" stroke="#ff3366" stroke-width="2"/>
+        <text x="99" y="383" text-anchor="middle" font-size="13" fill="#ff3366">400 — violation</text>
+
+        <!-- Vertical Center Branch: OpenAI Safe -->
+        <line x1="410" y1="406" x2="410" y2="450" stroke="#10b981" stroke-width="2" marker-end="url(#arr-green)"/>
+        <text x="420" y="432" font-size="12" fill="#10b981">safe ✓</text>
+
+        <!-- LLM Feasibility (Centered at x=410) -->
+        <g class="node">
+          <rect x="260" y="450" width="300" height="56" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+          <text x="410" y="472" text-anchor="middle" font-size="16" fill="#10b981">🧠 LLM Feasibility</text>
+          <text x="410" y="493" text-anchor="middle" font-size="12" fill="#10b981">dangerous · impossible · harassment</text>
+        </g>
+
+        <!-- Horizontal Left Branch: LLM Infeasible -->
+        <line x1="260" y1="478" x2="160" y2="478" stroke="#ff3366" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr-red)"/>
+        <text x="210" y="470" font-size="12" fill="#ff3366" text-anchor="middle">infeasible</text>
+        <rect x="40" y="459" width="118" height="38" rx="6" fill="#ffe6ec" stroke="#ff3366" stroke-width="2"/>
+        <text x="99" y="483" text-anchor="middle" font-size="13" fill="#ff3366">400 — infeasible</text>
+
+        <!-- Vertical Center Branch: LLM Safe -->
+        <line x1="410" y1="506" x2="410" y2="560" stroke="#10b981" stroke-width="2" marker-end="url(#arr-green)"/>
+
+        <!-- Accept box -->
+        <g class="node">
+          <rect x="280" y="560" width="260" height="48" rx="8" fill="#10b981" stroke="#10b981" stroke-width="2"/>
+          <text x="410" y="579" text-anchor="middle" font-size="16" fill="#ffffff">✅ 200 OK — Content Safe</text>
+          <text x="410" y="598" text-anchor="middle" font-size="12" fill="#ffffff">dare stored &amp; delivered</text>
+        </g>
+      </svg>
+        </g>
+      </svg>
+    </div>
+
+    <h3>Text-only Moderation</h3>
+    <p>
+      Used when a user types a dare without any image. The full pipeline (steps 1–5)
+      runs on the dare text alone. If the dare passes, the client receives <code>200 OK</code>
+      and can proceed to post.
+    </p>
+
+    <h3>Post moderation</h3>
+    <p>
+      Called after an image is already uploaded to Cloud Storage. Both the image <em>and</em>
+      associated caption text are sent through the pipeline. The image is signed with a
+      short-lived V4 URL so OpenAI can analyze it without the URL ever being public.
+    </p>
+  </div>
+
+  <!-- 4. MEDIA PIPELINE -->
+  <div class="section" id="media-pipeline">
+    <h2>Media Upload Pipeline</h2>
+    <p>Photos never go directly to our server. The client gets a short-lived signed URL and uploads straight to our Cloud Storage provider.</p>
+
+    <div class="flow-wrap">
+      <svg class="flow" viewBox="0 0 820 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#333333"/>
+          </marker>
+          <marker id="arr2r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#ff3366"/>
+          </marker>
+          <marker id="arr2g" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
+          </marker>
+        </defs>
+
+        <!-- Client -->
+        <rect x="20" y="30" width="140" height="44" rx="8" fill="#ffffff" stroke="#eaeaea" stroke-width="2"/>
+        <text x="90" y="55" text-anchor="middle" font-size="16" fill="#1a1a1a">📱 Client</text>
+
+        <line x1="160" y1="52" x2="220" y2="52" stroke="#333333" stroke-width="2" marker-end="url(#arr2)"/>
+        <text x="190" y="45" text-anchor="middle" font-size="11" fill="#666666">① request</text>
+
+        <!-- Server -->
+        <rect x="222" y="14" width="190" height="76" rx="8" fill="#ffffff" stroke="#eaeaea" stroke-width="2"/>
+        <text x="317" y="38" text-anchor="middle" font-size="15" fill="#1a1a1a">Server</text>
+        <text x="317" y="57" text-anchor="middle" font-size="11" fill="#666666">• auth check</text>
+        <text x="317" y="72" text-anchor="middle" font-size="11" fill="#666666">• quota check</text>
+
+        <line x1="412" y1="52" x2="490" y2="52" stroke="#333333" stroke-width="2" marker-end="url(#arr2)"/>
+        <text x="451" y="44" text-anchor="middle" font-size="11" fill="#666666">② signed</text>
+
+        <!-- Cloud Storage -->
+        <rect x="492" y="20" width="180" height="64" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+        <text x="582" y="45" text-anchor="middle" font-size="15" fill="#3b82f6">☁️ Cloud Storage</text>
+        <text x="582" y="65" text-anchor="middle" font-size="11" fill="#3b82f6">Signed URL</text>
+        
+        <!-- Client Moderation -->
+        <path d="M 400,200 C 400,150 317,150 317,96" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="5,4" marker-end="url(#arr2g)"/>
+
+        <!-- Moderation trigger box -->
+        <rect x="140" y="200" width="520" height="60" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+        <text x="400" y="225" text-anchor="middle" font-size="15" fill="#10b981">③ Client </text>
+        <text x="400" y="247" text-anchor="middle" font-size="12" fill="#10b981">→ Server signs image URL → client calls moderations pipeline</text>
+      </svg>
+    </div>
+
+    <div class="callout warn" data-label="Important">
+      <p>
+        If moderation fails at any point after the file has been uploaded,
+        <code>file is cleaned up</code> from the Cloud Storage
+        and the user's quota is restored.
+        No dirty content stays in storage.
+      </p>
+    </div>
+  </div>
+
+  <!-- 5. AUTH -->
+  <div class="section" id="auth">
+    <h2>Authentication &amp; Authorization</h2>
+    <p>Every server endpoint is protected by <strong>JWT Auth verification</strong>. The token is decoded server-side.
+
+    <div class="callout danger" data-label="Security alert">
+      <p>
+        Any request that fails this check is immediately rejected with <code>403 Forbidden</code>.
+        The violation is logged as a <strong>SECURITY ALERT</strong> with the details to admin.
+      </p>
+    </div>
+  </div>
+
+  <!-- 6. STORAGE -->
+  <div class="section" id="storage">
+    <h2>Storage Security</h2>
+    <p>All media is stored in our Cloud Storage as <strong>private</strong> objects. There are no public read ACLs.</p>
+
+    <table class="layer-table">
+      <thead>
+        <tr><th>Operation</th><th>Method</th><th>Signing type</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Download / view image</td>
+          <td>GET signed URL</td>
+          <td>Cryptographic + TTL</td>
+        </tr>
+        <tr>
+          <td>Upload photo</td>
+          <td>PUT signed URL</td>
+          <td>Cryptographic + TT + content-type locked</td>
+        </tr>
+        <tr>
+          <td>Moderation analysis</td>
+          <td>GET signed URL</td>
+          <td>Cryptographic + TT</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+  <footer>
+    <span>© 2026 Ushot. All rights reserved.</span>
+    <span>
+      <a href="/terms.html">Terms &amp; Conditions</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/faq.html">FAQ &amp; Support</a>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const el = document.querySelector(a.getAttribute('href'));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
