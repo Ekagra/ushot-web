@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ushot Content Policy</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #ff3366; 
+            --bg-color: #f9f9f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #eaeaea;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .effective-date {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .legal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p, li {
+            color: #555;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .shoutout-box {
+            background-color: #fff0f3;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .shoutout-box p {
+            margin: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Semantic lists for allowed/prohibited */
+        .list-allowed li::marker { color: #10b981; font-weight: bold; content: "✓ "; }
+        .list-prohibited li::marker { color: #ff3366; font-weight: bold; content: "✗ "; }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .legal-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Content Policy & Community Guidelines</h1>
+            <p class="effective-date">Last Updated: May 2026</p>
+        </header>
+
+        <div class="legal-content">
+            <p>Ushot is built on creativity, authenticity, and spontaneous fun. To keep our community safe and enjoyable for everyone, we have established strict guidelines on what is and isn't allowed on the platform.</p>
+            <p>Our automated safety pipelines and human moderation enforce this policy aggressively. If you see something that breaks these rules, please use the in-app reporting tools.</p>
+
+            <h2>1. What We Encourage</h2>
+            <p>We want Ushot to be a place where you can challenge your friends and share epic moments. You should always feel free to:</p>
+            <ul class="list-allowed">
+                <li>Create fun, challenging, and creative dares.</li>
+                <li>Share original photos and content that you own.</li>
+                <li>Interact respectfully with other members of the community.</li>
+                <li>Express yourself authentically and safely.</li>
+            </ul>
+
+            <h2>2. What Is Strictly Prohibited</h2>
+            <p>To protect our users, the following behaviors and content types are strictly forbidden.</p>
+            
+            <ul class="list-prohibited">
+                <li><strong>Violence & Harm:</strong> Content that promotes, incites, or depicts physical violence, self-harm, eating disorders, or dangerous stunts that pose a severe risk of injury.</li>
+                <li><strong>Explicit Content:</strong> Nudity, pornography, sexually explicit material, and non-consensual sexual content.</li>
+                <li><strong>Child Exploitation:</strong> Any content that sexualizes or endangers minors. We report all such instances to the National Center for Missing & Exploited Children (NCMEC) and relevant authorities.</li>
+                <li><strong>Hate Speech & Harassment:</strong> Bullying, doxxing, stalking, or attacking users based on race, ethnicity, national origin, religion, sexual orientation, gender identity, or disability.</li>
+                <li><strong>Illegal Activities:</strong> Buying, selling, or facilitating illegal drugs, weapons, or promoting any criminal acts.</li>
+                <li><strong>Spam & Deception:</strong> Impersonating others, mass-producing spam, phishing, or manipulating platform metrics artificially.</li>
+            </ul>
+
+            <div class="shoutout-box">
+                <p>Note: We employ fail-closed AI and LLM moderation to intercept harmful dares before they are even posted. If you attempt to bypass these filters, your account will be flagged.</p>
+            </div>
+
+            <h2>3. Consent and Privacy</h2>
+            <p>Always ensure you have the consent of the people you capture in your photos. Do not post private, sensitive, or identifying information (like addresses, phone numbers, or government IDs) about yourself or others.</p>
+
+            <h2>4. Enforcement and Strikes</h2>
+            <p>When our systems or moderators detect a violation, we take action based on the severity of the offense. Actions may include:</p>
+            <ul>
+                <li>Deletion of the violating post or dare.</li>
+                <li>Issuing a warning or temporary strike on your account.</li>
+                <li>Permanent suspension of your account and device ban.</li>
+                <li>Cooperation with law enforcement for illegal acts.</li>
+            </ul>
+
+            <h2>5. How to Report</h2>
+            <p>If you encounter content or behavior that violates this policy, tap the red-triangle caution icon on the post or dare and select <strong>Report</strong>. Our moderation team reviews reports to ensure platform safety.</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Ushot. All rights reserved.</p>
+            <p><a href="/terms.html">Terms</a> | <a href="/privacy.html">Privacy</a> | <a href="/safety.html">Safety Documentation</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
